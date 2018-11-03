@@ -74,8 +74,107 @@ public class PruebaRmi {
         }
 
     }
-
-    public static void main(String[] args) throws NotBoundException, MalformedURLException, RemoteException {
+    private static void jugar (List<List<String>> diccionarioVegetal, List<List<String>> diccionarioPais, List<List<String>> diccionarioNombreMasculino, List<List<String>> diccionarioNombreFemenino,  List<List<String>> diccionarioFrutaVerdura, List<List<String>> diccionarioDeporte,  List<List<String>> diccionarioCosa, List<List<String>> diccionarioCiudad, List<List<String>> diccionarioCantante, List<List<String>> diccionarioAccion) throws RemoteException{    
+             
+            String letra = obj.getLetra(Usuario, Pass);
+        
+            String categorias = obj.getCategorias(Usuario, Pass);
+        
+            String cats[] = categorias.split("-");
+         
+            int posicion= 0;
+                switch (letra) {
+                     case "a":  posicion = 0;
+                     break;
+                     case "b":  posicion = 1;
+                     break;
+                     case "c":  posicion = 2;
+                     break;
+                     case "d":  posicion = 3;
+                     break;
+                     case "e":  posicion = 4;
+                     break;
+                     case "f":  posicion = 5;
+                     break;
+                     case "g":  posicion = 6;
+                     break;
+                     case "h":  posicion = 7;
+                     break;
+                     case "i":  posicion = 8;
+                     break;
+                     case "j":  posicion = 9;
+                     break;
+                     case "k":  posicion = 10;
+                     break;
+                     case "l":  posicion = 11;
+                     break;
+                     case "m":  posicion = 12;
+                     break;
+                     case "n":  posicion = 13;
+                     break;
+                     case "ñ":  posicion = 14;
+                     break;
+                     case "o":  posicion = 15;
+                     break;
+                     case "p":  posicion = 16;
+                     break;
+                     case "q":  posicion = 17;
+                     break;
+                     case "r":  posicion = 18;
+                     break;
+                     case "s":  posicion = 19;
+                     break;
+                     case "t":  posicion = 20;
+                     break;
+                     case "u":  posicion = 21;
+                     break;
+                     case "v":  posicion = 22;
+                     break;
+                     case "w":  posicion = 23;
+                     break;
+                     case "x":  posicion = 24;
+                     break;
+                     case "y":  posicion = 25;
+                     break;
+                     case "z":  posicion = 26;
+                     break;}
+                
+                for (int i = 0; i < 10; i++) {
+                    String catego = cats[i];
+                  
+                 switch (catego) {
+                     case "pais":  obtenerPalabra(catego, diccionarioPais, posicion);
+                     break;
+                     case "vegetal":  obtenerPalabra(catego, diccionarioVegetal, posicion);
+                     break;
+                     case "nombremasculino":  obtenerPalabra(catego, diccionarioNombreMasculino, posicion);
+                     break;
+                     case "nombrefemenino":  obtenerPalabra(catego, diccionarioNombreFemenino, posicion);
+                     break;
+                     case "frutaverdura": obtenerPalabra(catego, diccionarioFrutaVerdura, posicion);
+                     break;
+                     case "deporte":  obtenerPalabra(catego, diccionarioDeporte, posicion);
+                     break;
+                     case "cosa":  obtenerPalabra(catego, diccionarioCosa, posicion);
+                     break;
+                     case "ciudad":  obtenerPalabra(catego, diccionarioCiudad, posicion);
+                     break;
+                     case "cantante":  obtenerPalabra(catego, diccionarioCantante, posicion);
+                     break;
+                     case "accion":  obtenerPalabra(catego, diccionarioAccion, posicion);
+                     break;
+                    }
+            
+                }
+            String puntos = obj.getMisPuntos(Usuario, Pass);
+            String ganador = obj.getGanador(Usuario, Pass);
+            
+            System.out.println("Puntos de " + Usuario + " : " + puntos);
+            System.out.println("Ganador de esta partida: " + ganador);
+            System.out.println("-------------------------------------------------");
+            }
+    public static void main(String[] args) throws NotBoundException, MalformedURLException, RemoteException, IOException, ClassNotFoundException {
+        
         try {
             if (System.getSecurityManager() == null) {
                 System.setProperty("java.security.policy", "java.policy");
@@ -227,7 +326,8 @@ public class PruebaRmi {
             writeArray(diccionario);
             */
             
-   
+        
+            
             List<List<String>> diccionarioVegetal = readArray("vegetal");
             List<List<String>> diccionarioPais = readArray("pais");
             List<List<String>> diccionarioNombreMasculino = readArray("nombremasculino");
@@ -237,114 +337,33 @@ public class PruebaRmi {
             List<List<String>> diccionarioCosa = readArray("cosa");
             List<List<String>> diccionarioCiudad = readArray("ciudad");
             List<List<String>> diccionarioCantante = readArray("cantante");
-             List<List<String>> diccionarioAccion = readArray("accion");
+            List<List<String>> diccionarioAccion = readArray("accion");
             
+            jugar(diccionarioVegetal, diccionarioPais, diccionarioNombreMasculino, 
+                    diccionarioNombreFemenino, diccionarioFrutaVerdura, diccionarioDeporte, 
+                    diccionarioCosa, diccionarioCiudad, diccionarioCantante, diccionarioAccion);
+         
+            for (int i = 0; i < 1; i++){
+             
             
             String letra = obj.getLetra(Usuario, Pass);
-        
-            String categorias = obj.getCategorias(Usuario, Pass);
-        
-            String cats[] = categorias.split("-");
-         
-            int posicion= 0;
-                switch (letra) {
-                     case "a":  posicion = 0;
-                     break;
-                     case "b":  posicion = 1;
-                     break;
-                     case "c":  posicion = 2;
-                     break;
-                     case "d":  posicion = 3;
-                     break;
-                     case "e":  posicion = 4;
-                     break;
-                     case "f":  posicion = 5;
-                     break;
-                     case "g":  posicion = 6;
-                     break;
-                     case "h":  posicion = 7;
-                     break;
-                     case "i":  posicion = 8;
-                     break;
-                     case "j":  posicion = 9;
-                     break;
-                     case "k":  posicion = 10;
-                     break;
-                     case "l":  posicion = 11;
-                     break;
-                     case "m":  posicion = 12;
-                     break;
-                     case "n":  posicion = 13;
-                     break;
-                     case "ñ":  posicion = 14;
-                     break;
-                     case "o":  posicion = 15;
-                     break;
-                     case "p":  posicion = 16;
-                     break;
-                     case "q":  posicion = 17;
-                     break;
-                     case "r":  posicion = 18;
-                     break;
-                     case "s":  posicion = 19;
-                     break;
-                     case "t":  posicion = 20;
-                     break;
-                     case "u":  posicion = 21;
-                     break;
-                     case "v":  posicion = 22;
-                     break;
-                     case "w":  posicion = 23;
-                     break;
-                     case "x":  posicion = 24;
-                     break;
-                     case "y":  posicion = 25;
-                     break;
-                     case "z":  posicion = 26;
-                     break;}
-                
-                for (int i = 0; i < 10; i++) {
-                    String catego = cats[i];
-                  
-                 switch (catego) {
-                     case "pais":  obtenerPalabra(catego, diccionarioPais, posicion);
-                     break;
-                     case "vegetal":  obtenerPalabra(catego, diccionarioVegetal, posicion);
-                     break;
-                     case "nombremasculino":  obtenerPalabra(catego, diccionarioNombreMasculino, posicion);
-                     break;
-                     case "nombrefemenino":  obtenerPalabra(catego, diccionarioNombreFemenino, posicion);
-                     break;
-                     case "frutaverdura": obtenerPalabra(catego, diccionarioFrutaVerdura, posicion);
-                     break;
-                     case "deporte":  obtenerPalabra(catego, diccionarioDeporte, posicion);
-                     break;
-                     case "cosa":  obtenerPalabra(catego, diccionarioCosa, posicion);
-                     break;
-                     case "ciudad":  obtenerPalabra(catego, diccionarioCiudad, posicion);
-                     break;
-                     case "cantante":  obtenerPalabra(catego, diccionarioCantante, posicion);
-                     break;
-                     case "accion":  obtenerPalabra(catego, diccionarioAccion, posicion);
-                     break;
-                    }
-                }
+            System.out.println(letra);
             
-            String puntos = obj.getMisPuntos(Usuario, Pass);
-            String ganador = obj.getGanador(Usuario, Pass);
-            
-            System.out.println("Puntos de " + Usuario + " : " + puntos);
-            System.out.println("Ganador de esta partida: " + ganador);
-            
-            /*Thread.sleep(1680000);
-            
+            Thread.sleep(1680000);
+                         
              String letraNueva = obj.getLetra(Usuario, Pass);  
-            do{
+             System.out.println(letraNueva);
+            
+             do{
               
                 letraNueva = obj.getLetra(Usuario, Pass);
               
-            } while(letraNueva == letra);*/
-        
+            } while(letraNueva.equals(letra));
+         
+            jugar(diccionarioVegetal, diccionarioPais, diccionarioNombreMasculino, 
+                    diccionarioNombreFemenino, diccionarioFrutaVerdura, diccionarioDeporte, 
+                    diccionarioCosa, diccionarioCiudad, diccionarioCantante, diccionarioAccion);
+         }
         
         
                 
@@ -356,3 +375,4 @@ public class PruebaRmi {
         }
     }
 }
+
