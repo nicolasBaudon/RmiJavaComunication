@@ -75,7 +75,11 @@ public class PruebaRmi {
 
     }
     private static void jugar (List<List<String>> diccionarioVegetal, List<List<String>> diccionarioPais, List<List<String>> diccionarioNombreMasculino, List<List<String>> diccionarioNombreFemenino,  List<List<String>> diccionarioFrutaVerdura, List<List<String>> diccionarioDeporte,  List<List<String>> diccionarioCosa, List<List<String>> diccionarioCiudad, List<List<String>> diccionarioCantante, List<List<String>> diccionarioAccion) throws RemoteException{    
-             
+            
+            obj.comenzarComunicacion(Usuario, Pass);
+            System.out.println("Conectado al server con usuario: " + Usuario);
+            System.out.println("-------------------------------------------------");
+           
             String letra = obj.getLetra(Usuario, Pass);
         
             String categorias = obj.getCategorias(Usuario, Pass);
@@ -182,10 +186,7 @@ public class PruebaRmi {
 
             }
             obj = (RmiServerIntf) Naming.lookup(IPREMOTO);
-            obj.comenzarComunicacion(Usuario, Pass);
-            System.out.println("Conectado al server con usuario: " + Usuario);
-            System.out.println("-------------------------------------------------");
-
+            
             /*
             CODIGO PARA CREAR DICCIONARIOS:
             String categorias = obj.getCategorias(Usuario, Pass);
@@ -343,13 +344,11 @@ public class PruebaRmi {
                     diccionarioNombreFemenino, diccionarioFrutaVerdura, diccionarioDeporte, 
                     diccionarioCosa, diccionarioCiudad, diccionarioCantante, diccionarioAccion);
          
-            for (int i = 0; i < 1; i++){
+            for (int i = 0; i < 10000; i++){
              
             
             String letra = obj.getLetra(Usuario, Pass);
             System.out.println(letra);
-            
-            Thread.sleep(1680000);
                          
              String letraNueva = obj.getLetra(Usuario, Pass);  
              System.out.println(letraNueva);
@@ -357,6 +356,8 @@ public class PruebaRmi {
              do{
               
                 letraNueva = obj.getLetra(Usuario, Pass);
+                System.out.println("Esperando cambio de letra");
+                Thread.sleep(2000);
               
             } while(letraNueva.equals(letra));
          
