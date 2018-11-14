@@ -143,7 +143,7 @@ public class PruebaRmi {
                      case "z":  posicion = 26;
                      break;}
                 
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < cats.length; i++) {
                     String catego = cats[i];
                   
                  switch (catego) {
@@ -357,6 +357,8 @@ public class PruebaRmi {
               
                 letraNueva = obj.getLetra(Usuario, Pass);
                 System.out.println("Esperando cambio de letra");
+                System.out.println(letraNueva);
+                System.out.println("-------------------------------------------------");
                 Thread.sleep(2000);
               
             } while(letraNueva.equals(letra));
